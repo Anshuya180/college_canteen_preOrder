@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Canteen • Pre-order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">College Canteen <span>• Quick Pickup</span></div>
+
+      <div class="nav-links" id="main-nav">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+  🌙
+</button>
+        <a href="#home" class="active">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#orders">My Orders</a>
+        <a href="#" class="cart-link" id="cart-link">
+          Cart <span class="cart-badge" id="cart-count">0</span>
+        </a>
+        <button class="auth-btn" id="loginBtn">Login</button>
+        <span class="user-info" id="userDisplay" style="display:none;"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div id="hero">
+    <div class="container">
+      <h1>Skip the Queue –<br>Pre-order Your Food!</h1>
+      <p>Order now, collect later • Save time between classes</p>
+      <button class="btn-primary" id="browseMenuBtn">Browse Menu</button>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="container" style="display:none;">
+  <h2 class="section-title">Today's Menu</h2>
+
+  <input type="text" id="searchInput" placeholder="Search food..." class="search-bar">
+
+  <div class="tabs" id="categoryTabs">
+    <button class="tab-btn active" data-cat="all">All</button>
+    <button class="tab-btn" data-cat="breakfast">Breakfast</button>
+    <button class="tab-btn" data-cat="south">South Indian</button>
+    <button class="tab-btn" data-cat="north">North Indian</button>
+    <button class="tab-btn" data-cat="chinese">Chinese</button>
+    <button class="tab-btn" data-cat="beverages">Beverages</button>
+    <button class="tab-btn" data-cat="snacks">Snacks</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- MY ORDERS -->
+<section id="orders" class="container" style="display:none; padding-bottom:80px;">
+  <h2 class="section-title">My Orders</h2>
+  <div id="ordersList"></div>
+</section>
+
+<!-- FLOATING CART -->
+<div id="floating-cart">
+  <div class="cart-summary">
+    <span id="cartTotalItems">0</span> items • ₹<span id="cartTotalPrice">0</span>
+  </div>
+  <button class="btn-primary" id="viewCartBtn">View Cart</button>
+</div>
+
+<!-- CART SIDEBAR -->
+<aside id="cart-sidebar">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <span class="cart-close" id="closeCart">×</span>
+  </div>
+  <div class="cart-body" id="cartItemsList"></div>
+  <div class="cart-footer">
+    <div class="summary-line"><span>Subtotal</span><span>₹<span id="subtotal">0</span></span></div>
+    <div class="summary-line"><span>Taxes (5%)</span><span>₹<span id="tax">0</span></span></div>
+    <div class="summary-line"><span>Prep charge</span><span>₹10</span></div>
+    <div class="grand-total">Total: ₹<span id="grandTotal">0</span></div>
+
+    <textarea id="specialInstructions" placeholder="Any special instructions? (less spicy, no onion, etc.)"></textarea>
+
+    <button class="btn-primary" id="placeOrderBtn">Place Pre-order</button>
+  </div>
+</aside>
+
+<!-- SUCCESS SCREEN -->
+<section id="success-screen" style="display:none;">
+  <div class="container">
+    <h1>Thank You!</h1>
+    <p style="font-size:1.3rem; margin:1.5rem 0 2rem;">Your order has been placed successfully</p>
+    <div class="token" id="orderToken">—</div>
+    <p style="font-size:1.2rem; margin:2rem 0 3rem;">
+      Estimated ready time: <strong id="readyTime">—</strong>
+    </p>
+
+    <button class="btn-primary" id="trackOrderBtn" style="margin:0 12px 16px;">Track Order</button>
+    <button class="btn-primary" id="continueShoppingBtn" style="background:#2a9d8f; color:white;">
+      Continue Shopping
+    </button>
+  </div>
+</section>
+
+<!-- LOGIN MODAL -->
+<div id="login-modal">
+  <div class="login-box">
+    <h2>Sign In</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="text" id="username" placeholder="Username / Roll No." required autocomplete="off">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
